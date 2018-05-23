@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//import { SuperTableModule } from 'ngx-super-table';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +10,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    //SuperTableModule,
+    NgxDatatableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,18 +3,145 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<div class="body">
+  <div class="table-responsive">
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+
+          <div class="dataTables_length" id="DataTables_Table_0_length">
+            <label>Show
+              <select class="form-control show-tick" id="jobber_id">
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              entries</label>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <div id="DataTables_Table_0_filter" class="dataTables_filter">
+            <label>Search:
+              <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-bordered table-striped table-hover 
+                          js-basic-example dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+            
+              <thead>
+                <tr role="row">
+                  <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Index: activate to sort column descending"
+                    style="width: 155px;"></th>
+                  <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Jobber: activate to sort column ascending"
+                    style="width: 103px;">
+                    <input type="text" class="form-control" id="usr" (keyup)="filterDataBySelect($event,'name','input')">
+                  </th>
+                  <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending"
+                    style="width: 103px;" >
+                  <select (change) ="filterDataBySelect($event, 'division', 'select')">
+                    <option value="">Division</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                  </select>
+                  </th>
+                  <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Notes: activate to sort column ascending"
+                    style="width: 112px;" (click)="sortData('marks',sortFields.marks)">Marks</th>
+                  <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending"
+                    style="width: 257px;" >
+                    <select (change) ="filterDataBySelect($event, 'grade','select')">
+                      <option value="">Grade</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </th>
+                  <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="City: activate to sort column ascending"
+                    style="width: 49px;" >
+                    <input type="text" class="form-control" id="usr" (keyup)="filterDataBySelect($event,'city','input')">
+                  </th>
+                </tr>
+              </thead>
+
+             <thead>
+              <tr role="row">
+                <th  tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Index: activate to sort column descending"
+                  style="width: 155px;">Index</th>
+                <th [ngClass]="sortClass(sortFields.name)" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Jobber: activate to sort column ascending"
+                  style="width: 103px;" (click)="sortData('name',sortFields.name)">Name</th>
+                <th [ngClass]="sortClass(sortFields.name)" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending"
+                  style="width: 103px;"  (click)="sortData('division',sortFields.division)">Division</th>
+                <th [ngClass]="sortClass(sortFields.division)" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Notes: activate to sort column ascending"
+                  style="width: 112px;" (click)="sortData('marks',sortFields.marks)">Marks</th>
+                <th [ngClass]="sortClass(sortFields.grade)" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending"
+                  style="width: 257px;" (click)="sortData('grade',sortFields.grade)">Grade</th>
+                <th [ngClass]="sortClass(sortFields.city)" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="City: activate to sort column ascending"
+                  style="width: 49px;" (click)="sortData('city',sortFields.city)">City</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th rowspan="1" colspan="1">Index</th>
+                <th rowspan="1" colspan="1">Name</th>
+                <th rowspan="1" colspan="1">Division</th>
+                <th rowspan="1" colspan="1">Marks</th>
+                <th rowspan="1" colspan="1">Grade</th>
+                <th rowspan="1" colspan="1">City</th>
+              </tr>
+            </tfoot>
+            <tbody>
+
+
+              <tr role="row" class="odd" *ngFor="let mark of markListPager; let i = index;">
+
+                <td>
+                  {{((pager.current_page-1) * itemPerPageCount) + i+1}}
+                </td>
+                <td>{{mark.name}}</td>
+                <td>{{mark.division}}</td>
+                <td>{{mark.marks}}</td>
+                <td>{{mark.grade}}</td>
+                <td>{{mark.city}}</td>
+    
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-5">
+          <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+            Showing {{((pager.current_page-1) * itemPerPageCount) + 1}} to
+            <span *ngIf="(((pager.current_page-1) * itemPerPageCount) + itemPerPageCount) > pager.total_count">{{pager.total_count}}</span>
+            <span *ngIf="(((pager.current_page-1) * itemPerPageCount) + itemPerPageCount) <= pager.total_count"> {{((pager.current_page-1) * itemPerPageCount) + itemPerPageCount}} </span> of {{pager.total_count}} entries
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-7">
+          <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+            <ul class="pagination">
+              <li class="paginate_button page-item previous" id="DataTables_Table_0_previous">
+                <a (click)="onPageChange(pager.current_page-1)" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+              </li>
+
+              <li class="paginate_button page-item" *ngFor="let p of pageCount" [ngClass]="{active:pager.current_page===p}">
+                <a (click)="onPageChange(p)" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">{{p}}
+                </a>
+              </li>
+
+              <li class="paginate_button page-item next" id="DataTables_Table_0_next">
+                <a (click)="onPageChange(pager.current_page+1)" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0"
+                  class="page-link">Next</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
