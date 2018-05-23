@@ -1,9 +1,5 @@
-# Testapp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
-
 # customgrid-filtersort
-A test angular 6 , bootstrap combo with lodash for filter and sorting. In its initial stage, lil bit customisation is yet to be added.
+Angular 6 , bootstrap combo with lodash for Datatable filter and sorting. In its initial stage, lil bit customisation is yet to be added.
 
 ## Development server
 
